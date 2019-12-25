@@ -4,55 +4,49 @@ const apiKey = "0vva2GlZR0NpwzgAjLIAZ3cfrvHxuq6X";
 const baseUrl = "//dataservice.accuweather.com";
 
 export const addToFavorite = city => dispatch => {
-console.log(city)
-    try {
+  try {
+    dispatch({
+      type: ADD_FAVORITE,
+      payload: city
+    });
+  } catch (err) {
+    console.error(err);
+  }
+};
 
-      dispatch({
-        type: ADD_FAVORITE,
-        payload: city
-      });
-    } catch (err) {
-      console.error(err);
-    }
-  };
+export const removeFavorite = city => dispatch => {
+  try {
 
-  export const removeFavorite = city => dispatch => {
-    try {
+    dispatch({
+      type: REMOVE_FAVORITE,
+      payload: city
+    });
+  } catch (err) {
+    console.error(err);
+  }
+};
 
-      dispatch({
-        type: REMOVE_FAVORITE,
-        payload: city
-      });
-    } catch (err) {
-      console.error(err);
-    }
-  };
+export const getFavoritesData = (favorite) => async dispatch => {
 
-  export const getFavoritesData = (favorite) => async dispatch => {
-    
-      dispatch({type:GET_FAVORITES_DATA_LOADING})
-    try {
-       
-      
-      const res = await axios.get(
-        `${baseUrl}/currentconditions/v1/${favorite.key}?apikey=${apiKey}`
-      );
-      console.log(favorite.country)
-      const city = {
-        data: res.data[0],
-        name:favorite.name,
-        key:favorite.key,
-        country:favorite.country.country
-      };
-      return dispatch({
-        type: GET_FAVORITES_DATA_SUCCESS,
-        payload: city
-      });
-    } catch (err) {
-        return dispatch({
-            type: GET_FAVORITES_DATA_FAILED,
-            payload: err
-          });
-    }
-  };
-  
+  dispatch({ type: GET_FAVORITES_DATA_LOADING })
+  try {
+    const res = await axios.get(
+      `${baseUrl}/currentconditions/v1/${favorite.key}?apikey=${apiKey}`
+    );
+    const city = {
+      data: res.data[0],
+      name: favorite.name,
+      key: favorite.key,
+      country: favorite.country.country
+    };
+    return dispatch({
+      type: GET_FAVORITES_DATA_SUCCESS,
+      payload: city
+    });
+  } catch (err) {
+    return dispatch({
+      type: GET_FAVORITES_DATA_FAILED,
+      payload: err
+    });
+  }
+};

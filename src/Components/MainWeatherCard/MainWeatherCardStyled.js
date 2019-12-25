@@ -4,8 +4,8 @@ export const TodayCard = styled.div`
     display:flex;
     flex-direction:column;
     padding: 10px;
-
 `
+
 export const DetailsToday = styled.div`
     align-self: center;
     display:flex;
@@ -13,6 +13,7 @@ export const DetailsToday = styled.div`
     padding: 10px;
     justify-content: space-between;
 `
+
 export const DetailsWeek = styled.div`
     align-self: center;
     flex-flow: wrap;
@@ -27,19 +28,19 @@ export const Information = styled.div`
     flex-direction:row;
     text-align: center;
     justify-content: space-between;
-
 `
+
 export const GeneralInformation = styled.div`
     display:flex;
     flex-direction:column;
 `
 
 export const Favorites = styled.div`
- display:flex;
+    display:flex;
     flex-direction:column;
     text-align: center;
     align-self: center;
-  `
+`
 
 export const Temperature = styled.div`
     font-size:50px;
@@ -47,35 +48,33 @@ export const Temperature = styled.div`
     justify-content: flex-end;
     align-self: center;
     font-weight:bold;
-
-
-  `
+`
 export const Name = styled.div`
-font-size:30px;
-font-weight:bold;
-padding:5px;
+    font-size:30px;
+    font-weight:bold;
+    padding:5px;
 `
+
 export const Country = styled.div`
-font-size:13px;
-font-weight:bold;
-padding:5px;
-
+    font-size:13px;
+    font-weight:bold;
+    padding:5px;
 `
+
 export const DateToday = styled.div`
-font-size:8px;
-font-weight:bold;
-padding:5px;
-
+    font-size:8px;
+    font-weight:bold;
+    padding:5px;
 `
+
 export const TextTemperature = styled.div`
-font-size:20px;
-display: flex;
-align-self: center;
-
+    font-size:20px;
+    display: flex;
+    align-self: center;
 `
 
-  export const Label = styled.span`
- position: absolute;
+export const Label = styled.span`
+    position: absolute;
     top: 5px;
     left: 0;
     font-size: 16px;
@@ -83,9 +82,10 @@ align-self: center;
     font-weight: 500;
     transform-origin: 0 0;
     transition: all .2s ease;
-  `
-  export const Border = styled.span`
-   position: absolute;
+`
+
+export const Border = styled.span`
+    position: absolute;
     bottom: 0;
     left: 0;
     height: 2px;
@@ -94,8 +94,9 @@ align-self: center;
     transform: scaleX(0);
     transform-origin: 0 0;
     transition: all .15s ease;
-   `
-    export const Input = styled.input`
+`
+
+export const Input = styled.input`
     -webkit-appearance: none;
     border: 0;
     font-family: inherit;
@@ -119,8 +120,6 @@ align-self: center;
       }
     }
     &:focus{
-
-    
       background: none;
       outline: none;
       + span{
@@ -131,10 +130,7 @@ align-self: center;
         }
       }
     }
-    `
-  
- 
-
+`
 export const ButtonsContainer = styled.div`
     display: flex;
     flex-direction: row;

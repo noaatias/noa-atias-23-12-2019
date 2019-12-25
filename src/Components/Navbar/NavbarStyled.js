@@ -13,9 +13,7 @@ export const NavbarContainer = styled.div`
     right: 0;
     z-index: 10;
     background:blue;
-
 `
-
 
 export const ButtonsContainer = styled.div`
     display: flex;

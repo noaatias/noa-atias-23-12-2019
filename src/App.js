@@ -1,25 +1,31 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { Route, Link, BrowserRouter as Router, Switch } from 'react-router-dom'
+import Navbar from './Components/Navbar/Navbar';
+import HomePage from './Components/HomePage/HomePage';
+import Favorites from './Components/Favorites/Favorites';
+import { Provider } from "react-redux";
+import store from "../src/js/store/index";
+import { getLocationData } from './js/actions/city';
 
 function App() {
+
+  useEffect(() => {
+    store.dispatch(getLocationData());
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  <Provider store={store}>
+
+    <Router>
+      <Navbar></Navbar>
+      <Switch>
+      <Route exact path='/' component={HomePage} />
+      <Route exact path='/favorites' component={Favorites} />
+      </Switch>
+    </Router>
+    </Provider>
+
   );
 }
 
